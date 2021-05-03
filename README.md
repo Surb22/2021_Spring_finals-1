@@ -1,4 +1,4 @@
-Immigration in the US:
+The hustle around "H-1B" visas
 
 H-1B:This nonimmigrant classification applies to people who wish to perform services in a specialty occupation, services of exceptional merit and ability relating to a Department of Defense (DOD) cooperative research and development project, or services as a fashion model of distinguished merit or ability. 
 Prospective specialty occupation and distinguished fashion model employers/agents must obtain a certification of an LCA from the DOL. This application includes certain attestations, a violation of which can result in fines, bars on sponsoring nonimmigrant or immigrant petitions, and other sanctions to the employer/agent. The application requires the employer/agent to attest that it will comply with all the labor requirements for H-1B visas.
@@ -9,7 +9,7 @@ Hypothesis 1: How has the LCA approval rate varied over the years in different i
 H0:The overall trend of employing foreign workers in speciality occupations (for which H1B is required) has increased
 due to globalisation and development in the means of communication and transport.
 
-H1:There was no change seen in employment of foreign workers.
+H1:There has been no change in employment of foreign workers over the years.
 
 
 Hypothesis 2: There has been a notable change in the number of Labor Condition Applications being certified based on who was there in the White house and
