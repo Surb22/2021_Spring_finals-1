@@ -18,7 +18,7 @@ H0: The "Obama" and the "Trump" government favored citizens from a certain natio
 H1: The government in power was not biased towards citizens from any particular nation while certifying the Labor Condition Applications
 
 
-Hypothesis 3: To test whether market value of an organisation has any impact on the DOL(Department of Labor) certifying the Labor Condition Applications.
+Hypothesis 3: To test whether market value of an organisation has any impact on the rate of the Labor Condition Applications being certified by the Department of Labor.
 
 H0: Market value of an organisation has an impact on the number of Labor Condition Applications being certified by the department of  Labor.
 
