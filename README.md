@@ -11,7 +11,7 @@ H0:The overall trend of employing foreign workers in speciality occupations (for
 H1:There has been no change in employment of foreign workers over the years.
 
 
-Hypothesis 2: To test if there has been a notable change in the number of Labor Condition Applications being certified based on who was there in the White house and
+Hypothesis 2: To test if there has been a notable change in the number of Labor Condition Applications being certified based on who was there in the White house and if
 a certain preference was given to applicants of a particular nationality.
 
 H0: The "Obama" and the "Trump" government favored citizens from a certain nationality in certifying Labor Condition Applications based on the relations of United States with that particular nation.
