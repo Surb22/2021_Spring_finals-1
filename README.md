@@ -20,7 +20,8 @@ H1: The government in power was not biased towards citizens from any particular 
 
 Hypothesis 3: To test whether market value of an organisation has any impact on the DOL(Department of Labor) certifying the Labor Condition Applications.
 
-H0: Market value of an organisation has an impact on the DOL(Department of Labor) certifying the Labor Condition Applications
+H0: Market value of an organisation has an impact on the number of Labor Condition Applications being certified by the department of  Labor.
+
 
 H1: There is no impact of market value of an organisation in certifying the Labor Condition Applications
 
