@@ -51,6 +51,7 @@ def sector_range(row):
     :param row: Each row of the dataframe
     :return: Returns the numbers after being split and all the values lying between those numbers
     """
+
     if isinstance(row, list) and len(row) > 1:
         return list(range(int(row[0]), int(row[1]) + 1))
     elif isinstance(row, list):
@@ -267,40 +268,4 @@ def analysis_state(file_list):
     return(plot_data_df)
 
 
-# %%
 
-
-if __name__ == '__main__':
-    path = "data_H1B/"
-    directory = os.listdir(path)
-    path2 = "data_Country/"
-    directory2 = os.listdir(path2)
-    df_h1 = hypothesis_one(directory)
-    plot_hypothesis_one(df_h1)
-    df_h2= hypothesis_two(directory2)
-    plot_hypothesis_two(df_h2)
-    df_a1 = analysis_state(directory)
-    df_a1 = df_a1.apply(lambda s: pd.Series(s.nlargest(5).index))
-    df_a1.index = np.arange(1, len(df_a1) + 1)
-    df_a1
-    hypothesis3_df = df_hypothesis_three(directory)
-
-
-
-
-hypothesis3_df = hypothesis3_df[hypothesis3_df.MarketCap_x != 0.000000e+00]
-
-
-head_df = pd.DataFrame()
-for year in range(2011, 2021):
-    head_df = head_df.append(
-        hypothesis3_df[hypothesis3_df.year_x == str(year)].sort_values(by='MarketCap_x', ascending=False).head(3))
-head_df
-
-
-
-tail_df = pd.DataFrame()
-for year in range(2011, 2021):
-    tail_df = tail_df.append(
-        hypothesis3_df[hypothesis3_df.year_x == str(year)].sort_values(by='MarketCap_x', ascending=False).tail(3))
-tail_df
