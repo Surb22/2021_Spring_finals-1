@@ -194,7 +194,7 @@ def plot_hypothesis_two(data_plot):
     plt.show
 
 
-def df_hypothesis_three(file_list):
+def hypothesis_three(file_list):
     """
      Used to return a dataframe containing Employer name along with its market capital and
      LCA approval rate from 2011-2020
