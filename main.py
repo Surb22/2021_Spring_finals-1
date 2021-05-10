@@ -3,8 +3,8 @@
 import pandas as pd
 import numpy as np
 import os
-import matplotlib as mpl
 import matplotlib.pyplot as plt
+
 
 
 def read_data(file_name: str, hypothesis_flag) -> pd.DataFrame:
@@ -47,9 +47,9 @@ def read_data(file_name: str, hypothesis_flag) -> pd.DataFrame:
 
 def sector_range(row):
     """
-
-    :param row:
-    :return:
+    Used to split the NAICS sector codes containing "-"
+    :param row: Each row of the dataframe
+    :return: Returns the numbers after being split and all the values lying between those numbers
     """
     if isinstance(row, list) and len(row) > 1:
         return list(range(int(row[0]), int(row[1]) + 1))
@@ -195,10 +195,12 @@ def plot_hypothesis_two(data_plot):
 
 def df_hypothesis_three(file_list):
     """
-
-    :param file_list:
-    :return:
-    """
+     Used to return a dataframe containing Employer name along with its market capital and
+     LCA approval rate from 2011-2020
+     :param file_list:
+     :return: Returns a dataframe containing Employer name along with its market capital and
+     LCA approval rate from 2011-2020
+     """
     company_df = pd.read_csv("companylist.csv", dtype={'MarketCap': 'float64'})
     final_df = pd.DataFrame()
     list_of_df = []
