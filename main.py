@@ -1,8 +1,13 @@
+"""
+IS 597: Final Project
+Team members:
+Shubhda Sharma - shubhda2
+Surbhi Bhargava - surbhib2
 
+"""
 
 import pandas as pd
 import matplotlib.pyplot as plt
-
 
 
 def read_data(file_name: str, hypothesis_flag) -> pd.DataFrame:
@@ -32,15 +37,15 @@ def read_data(file_name: str, hypothesis_flag) -> pd.DataFrame:
                  'LCA_CASE_NAICS_CODE': 'NAICS_CODE', 'WORKSITE_STATE_1': 'WORKSITE_STATE', 'NAIC_CODE': 'NAICS_CODE',
                  'TOTAL WORKERS': 'TOTAL_WORKERS'})
     if hypothesis_flag == False:
-            df['STATUS'] = df["STATUS"].str.upper()
-            df = df[(df['STATUS'] == 'CERTIFIED') & (df['VISA_CLASS'] == 'H-1B')]
-            df['NAICS_CODE'] = df['NAICS_CODE'].str[:2]
-            return (df)
+        df['STATUS'] = df["STATUS"].str.upper()
+        df = df[(df['STATUS'] == 'CERTIFIED') & (df['VISA_CLASS'] == 'H-1B')]
+        df['NAICS_CODE'] = df['NAICS_CODE'].str[:2]
+        return df
     elif hypothesis_flag == True:
-            df['STATUS'] = df["STATUS"].str.upper()
-            df['NAICS_CODE'] = df['NAICS_CODE'].str[:2]
-            df = df[df['VISA_CLASS'] == 'H-1B']
-            return (df)
+        df['STATUS'] = df["STATUS"].str.upper()
+        df['NAICS_CODE'] = df['NAICS_CODE'].str[:2]
+        df = df[df['VISA_CLASS'] == 'H-1B']
+        return df
 
 
 def sector_range(row):
@@ -100,8 +105,7 @@ def read_sector_data(filename: str) -> pd.DataFrame:
     sector_codes_final = sector_codes.merge(sector_df['Name'], left_index=True, right_index=True, how='inner')
     sector_codes_final = sector_codes_final.rename(columns={"value": "Sector"})
     sector_codes_final['Sector'] = sector_codes_final['Sector'].astype('int8')
-    return (sector_codes_final)
-
+    return sector_codes_final
 
 
 def hypothesis_one_cal(year_df, sector_data_df, yy) -> pd.DataFrame:
@@ -113,9 +117,9 @@ def hypothesis_one_cal(year_df, sector_data_df, yy) -> pd.DataFrame:
     :param yy: The year of LCA data under consideration.
     :return: Dataframe containing total of LCA approvals for each sector ina year.
     """
-    year_df =year_df.merge(sector_data_df, how='left', left_on='NAICS_CODE', right_on='Sector')
+    year_df = year_df.merge(sector_data_df, how='left', left_on='NAICS_CODE', right_on='Sector')
     stats_df = year_df.groupby(['Name'])['TOTAL_WORKERS'].sum().astype('int32').reset_index(name=yy)
-    return( stats_df)
+    return stats_df
 
 
 def hypothesis_one(file_list) -> pd.DataFrame:
@@ -162,7 +166,8 @@ def hypothesis_one(file_list) -> pd.DataFrame:
         stats = hypothesis_one_cal(year_data, sector_df, year)
         plot_data_df = plot_data_df.merge(stats, how='left', left_on='Sectors', right_on='Name')
         del plot_data_df['Name']
-    return (plot_data_df)
+    return plot_data_df
+
 
 def plot_hypothesis_one(data_plot):
     """
@@ -170,23 +175,23 @@ def plot_hypothesis_one(data_plot):
     :param data_plot: Dataframe containing the total LCA approvals per year for different sectors over 2011-20.
     :return: None
     """
-    data_plot= data_plot.set_index('Sectors')
-    data_plot= data_plot.iloc[:,:-1]
+    data_plot = data_plot.set_index('Sectors')
+    data_plot = data_plot.iloc[:, :-1]
     colors = plt.rcParams["axes.prop_cycle"]()
-    fig, axes = plt.subplots(5, 4, figsize=(10,10))
+    fig, axes = plt.subplots(5, 4, figsize=(10, 10))
     fig.suptitle("Trend for number of LCA approvals in various sectors")
-    r=0
-    c=0
+    r = 0
+    c = 0
     for i, (name, row) in enumerate(data_plot.iterrows()):
         plot_df = row.to_frame()
         col = next(colors)["color"]
-        plot_df.plot(ax=axes[r,c],legend=False, sharex= True, yticks=[], color=col)
-        if c/4==0.75:
-            r=r+1
-            c=0
-        else :
-            c=c+1
-    fig.legend(loc="lower left", bbox_to_anchor = (1.0, 0.2))
+        plot_df.plot(ax=axes[r, c], legend=False, sharex=True, yticks=[], color=col)
+        if c/4 == 0.75:
+            r = r+1
+            c = 0
+        else:
+            c = c+1
+    fig.legend(loc="lower left", bbox_to_anchor=(1.0, 0.2))
     plt.show
 
 
@@ -227,7 +232,7 @@ def hypothesis_two(directory) -> pd.DataFrame:
         sd = sd.merge(df, how='left', left_on='Nationality', right_on='Visa_Country')
         del sd['Visa_Country']
 
-    return (sd)
+    return sd
 
 
 def plot_hypothesis_two(data_plot):
@@ -304,9 +309,9 @@ def analysis_state_cal(states_data_df, year_df, yy) -> pd.DataFrame:
     :return: Dataframe containing list of states and corresponding
     number of LCA filings in which the state was the primary worksite.
     """
-    year_df =year_df.merge(states_data_df, how='left', left_on='WORKSITE_STATE', right_on='Abbreviation')
+    year_df = year_df.merge(states_data_df, how='left', left_on='WORKSITE_STATE', right_on='Abbreviation')
     stats_df = year_df.groupby(['State'])['TOTAL_WORKERS'].sum().reset_index(name=yy)
-    return(stats_df)
+    return stats_df
 
 
 def analysis_state(file_list) -> pd.DataFrame:
@@ -318,18 +323,15 @@ def analysis_state(file_list) -> pd.DataFrame:
     states_df = pd.read_csv('states.csv')
     state_name = states_df.State.unique().tolist()
     plot_data_df = pd.DataFrame()
-    plot_data_df['Worksite State']= state_name
+    plot_data_df['Worksite State'] = state_name
     for file in file_list:
         file_name = "data_H1B/" + file
         hypothesis_flag = False
-        year_data = read_data (file_name, hypothesis_flag)
+        year_data = read_data(file_name, hypothesis_flag)
         year = '20' + file[7:9]
-        stats = analysis_state_cal(states_df,year_data, year)
+        stats = analysis_state_cal(states_df, year_data, year)
         plot_data_df = plot_data_df.merge(stats, how='left', left_on='Worksite State', right_on='State')
         del plot_data_df['State']
     plot_data_df = plot_data_df.set_index('Worksite State')
 
-    return(plot_data_df)
-
-
-
+    return plot_data_df
