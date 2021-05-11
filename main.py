@@ -103,7 +103,7 @@ def read_sector_data(filename: str) -> pd.DataFrame:
 
 
 
-def hypothesis_one_cal(year_df, sector_data_df, yy):
+def hypothesis_one_cal(year_df, sector_data_df, yy) -> pd.DataFrame:
     """
     Merge yearly LCA data with NCAIS code data to be able to categorize LCA data according to industry sectors.
     Calculate total number of LCA approvals in a sector in an year.
@@ -117,10 +117,11 @@ def hypothesis_one_cal(year_df, sector_data_df, yy):
     return( stats_df)
 
 
-def hypothesis_one(file_list):
+def hypothesis_one(file_list) -> pd.DataFrame:
     """
     Create a dataframe containing list of unique sector codes using NAICS data.
     Merge the above dataframe with yearly data of LCA approvals in each sector.
+
     >>> hypothesis_one(['H-1B_FY11.csv'])
                                                   Sectors    2011
     0          Agriculture, Forestry, Fishing and Hunting     452
@@ -188,9 +189,10 @@ def plot_hypothesis_one(data_plot):
     plt.show
 
 
-def hypothesis_two(directory):
+def hypothesis_two(directory) -> pd.DataFrame:
     """
     Create a dataframe containing country wise data on H1B approvals per year from 2011-20.
+
     >>> hypothesis_two(['FY11NIVDetailTable.csv'])
                                Nationality     2011
     0                     China - mainland  10849.0
@@ -254,13 +256,13 @@ def plot_hypothesis_two(data_plot):
     plt.show
 
 
-def hypothesis_three(file_list):
+def hypothesis_three(file_list) -> pd.DataFrame:
     """
      Used to return a dataframe containing Employer name along with its market capital and
-     LCA approval rate from 2011-2020
+     LCA approval rate from 2011-20
      :param file_list: File names of all the yearly LCA data files.
      :return: Returns a dataframe containing Employer name along with its market capital and
-     LCA approval rate from 2011-2020
+     LCA approval rate from 2011-20
      """
     company_df = pd.read_csv("companylist.csv", dtype={'MarketCap': 'float64'})
     final_df = pd.DataFrame()
@@ -291,24 +293,26 @@ def hypothesis_three(file_list):
     return final_df
 
 
-def analysis_state_cal(states_data_df, year_df, yy):
+def analysis_state_cal(states_data_df, year_df, yy) -> pd.DataFrame:
     """
-
-    :param states_data_df:
-    :param year_df:
-    :param yy:
-    :return:
+    Used to merge state list with yearly LCA data frame to return a dataframe
+    containing detail of LCA filings for every state.
+    :param states_data_df: Dataframe containing the list of states in America.
+    :param year_df: Yearly LCA dataframe.
+    :param yy: Year of LCA data file
+    :return: Dataframe containing list of states and corresponding
+    number of LCA filings in which the state was the primary worksite.
     """
     year_df =year_df.merge(states_data_df, how='left', left_on='WORKSITE_STATE', right_on='Abbreviation')
     stats_df = year_df.groupby(['State'])['TOTAL_WORKERS'].sum().reset_index(name=yy)
-    return( stats_df)
+    return(stats_df)
 
 
-def analysis_state(file_list):
+def analysis_state(file_list) -> pd.DataFrame:
     """
-
-    :param file_list:
-    :return:
+    Create a dataframe containing 50 states of America along with the number of LCA containing that state as worksite.
+    :param file_list: File names of all the yearly LCA data files.
+    :return: Returns a dataframe containing States along with LCA approvals from 2011-20.
     """
     states_df = pd.read_csv('states.csv')
     state_name = states_df.State.unique().tolist()
