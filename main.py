@@ -1,18 +1,16 @@
 
 
 import pandas as pd
-import numpy as np
-import os
 import matplotlib.pyplot as plt
 
 
 
 def read_data(file_name: str, hypothesis_flag) -> pd.DataFrame:
     """
-    Load file containg details of LCA and retain only useful columns.
+    Load file containing details of LCA and retain only useful columns.
     Replace the column names with meaningful heads.
     :param file_name: The path to the LCA data file.
-    :param hypothesis_flag:
+    :param hypothesis_flag: Flag to differentiate between hypothesis one and three.
     :return: Dataframe with useful columns from the LCA data.
     """
 
@@ -123,6 +121,29 @@ def hypothesis_one(file_list):
     """
     Create a dataframe containing list of unique sector codes using NAICS data.
     Merge the above dataframe with yearly data of LCA approvals in each sector.
+    >>> hypothesis_one(['H-1B_FY11.csv'])
+                                                  Sectors    2011
+    0          Agriculture, Forestry, Fishing and Hunting     452
+    1       Mining, Quarrying, and Oil and Gas Extraction    1464
+    2                                           Utilities     971
+    3                                        Construction    1944
+    4                                       Manufacturing   37772
+    5                                     Wholesale Trade    4829
+    6                                        Retail Trade    7660
+    7                      Transportation and Warehousing    1586
+    8                                         Information   25867
+    9                               Finance and Insurance   17025
+    10                 Real Estate and Rental and Leasing    1115
+    11   Professional, Scientific, and Technical Services  488520
+    12            Management of Companies and Enterprises    1204
+    13  Administrative and Support and Waste Managemen...    5912
+    14                               Educational Services   36065
+    15                  Health Care and Social Assistance   27036
+    16                Arts, Entertainment, and Recreation    1832
+    17                    Accommodation and Food Services    2126
+    18      Other Services (except Public Administration)    1911
+    19                              Public Administration     875
+
     :param file_list: List of names of LCA yearly files.
     :return: Dataframe containing year wise estimates of LCA approvals in each sector.
     """
@@ -170,6 +191,20 @@ def plot_hypothesis_one(data_plot):
 def hypothesis_two(directory):
     """
     Create a dataframe containing country wise data on H1B approvals per year from 2011-20.
+    >>> hypothesis_two(['FY11NIVDetailTable.csv'])
+                               Nationality     2011
+    0                     China - mainland  10849.0
+    1                       China - Taiwan   1705.0
+    2                                India  72438.0
+    3                         Korea, South   3501.0
+    4                               Mexico   2647.0
+    5                               Brazil   1614.0
+    6                            Australia    537.0
+    7                               Russia    883.0
+    8   Great Britain and Northern Ireland   3660.0
+    9                              Germany   1627.0
+    10                              France   2069.0
+    11                         Philippines   2369.0
 
     :param directory: File names of all the yearly H1B data files.
     :return: Dataframe containing the total H1B approvals per year for selected countries over 2011-20.
