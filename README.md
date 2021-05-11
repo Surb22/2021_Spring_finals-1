@@ -23,6 +23,7 @@ H1: The government in power was not biased towards citizens from any particular 
 
 ### Result:
 For the period between 2009-17, the Democrats were at the Centre and lead by President Barak Obama whereas the Republicans were in power from 2017-2021, headed by President Donald Trump. We neglected the year 2020 in our analysis as this was the year affected by pandemic and is obvious to observe a decline in H1-B visas.We based our hypothesis on the fact that maybe the foreign policies during the Republican era might have affected the approvals of H1-B visas for the years 2017-2019 especially for countries like China( Mainland, Taiwan) , Mexico and Russia. But looking at the plots below we can reject our hypothesis as it is clearly seen that the power in the Centre and its foreign policies does not affect the approvals of H1-B.
+
 ![image](https://user-images.githubusercontent.com/77983689/117743825-2c9f9500-b1cd-11eb-959b-1bec321ca736.png)
 
 
