@@ -50,6 +50,8 @@ def sector_range(row):
     Used to split the NAICS sector codes containing "-"
     :param row: Each row of the dataframe
     :return: Returns the numbers after being split and all the values lying between those numbers
+    >>> sector_range([13,15])
+    [13, 14, 15]
     """
 
     if isinstance(row, list) and len(row) > 1:
@@ -64,7 +66,32 @@ def read_sector_data(filename: str) -> pd.DataFrame:
     Change the layout for a few rows to make the data inclusive of all codes.
     :param filename: The path to the NAICS code data file.
     :return: Dataframe containing NAICS codes and their corresponding sectors.
-
+    >>> read_sector_data('2017_NAICS_Structure_Summary_Table.csv')
+        Sector                                               Name
+    1       11         Agriculture, Forestry, Fishing and Hunting
+    2       21      Mining, Quarrying, and Oil and Gas Extraction
+    3       22                                          Utilities
+    4       23                                       Construction
+    5       31                                      Manufacturing
+    5       32                                      Manufacturing
+    5       33                                      Manufacturing
+    6       42                                    Wholesale Trade
+    7       44                                       Retail Trade
+    7       45                                       Retail Trade
+    8       48                     Transportation and Warehousing
+    8       49                     Transportation and Warehousing
+    9       51                                        Information
+    10      52                              Finance and Insurance
+    11      53                 Real Estate and Rental and Leasing
+    12      54   Professional, Scientific, and Technical Services
+    13      55            Management of Companies and Enterprises
+    14      56  Administrative and Support and Waste Managemen...
+    15      61                               Educational Services
+    16      62                  Health Care and Social Assistance
+    17      71                Arts, Entertainment, and Recreation
+    18      72                    Accommodation and Food Services
+    19      81      Other Services (except Public Administration)
+    20      92                              Public Administration
     """
     sector_df = pd.read_csv(filepath_or_buffer=filename, encoding='ISO-8859-1')
     sector_df["Sector"] = sector_df["Sector"].str.split("-")
@@ -96,8 +123,6 @@ def hypothesis_one(file_list):
     """
     Create a dataframe containing list of unique sector codes using NAICS data.
     Merge the above dataframe with yearly data of LCA approvals in each sector.
-
-
     :param file_list: List of names of LCA yearly files.
     :return: Dataframe containing year wise estimates of LCA approvals in each sector.
     """
@@ -198,7 +223,7 @@ def hypothesis_three(file_list):
     """
      Used to return a dataframe containing Employer name along with its market capital and
      LCA approval rate from 2011-2020
-     :param file_list:
+     :param file_list: File names of all the yearly LCA data files.
      :return: Returns a dataframe containing Employer name along with its market capital and
      LCA approval rate from 2011-2020
      """
@@ -226,7 +251,6 @@ def hypothesis_three(file_list):
         new_data['MarketCap_x'].astype('float64')
         new_data['Rate'] = (new_data['CERTIFIED_TOTAL_WORKERS'] / new_data['TOTAL_WORKERS_OVERALL']) * 100
         new_data = new_data[['EMPLOYER_NAME', 'Rate', 'MarketCap_x', 'year_x']]
-        # print(new_data.sort_values(by='Rate', ascending=False))
         list_of_df.append(new_data)
     final_df = pd.concat(list_of_df, ignore_index=True)
     return final_df
