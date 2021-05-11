@@ -64,6 +64,7 @@ def read_sector_data(filename: str) -> pd.DataFrame:
     Change the layout for a few rows to make the data inclusive of all codes.
     :param filename: The path to the NAICS code data file.
     :return: Dataframe containing NAICS codes and their corresponding sectors.
+
     >>> read_sector_data('2017_NAICS_Structure_Summary_Table.csv')
         Sector                                               Name
     1       11         Agriculture, Forestry, Fishing and Hunting
