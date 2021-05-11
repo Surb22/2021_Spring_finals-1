@@ -18,6 +18,10 @@ We observe that LCA filings have increased over the years for mostly all the ser
 
 ## Hypothesis 2: There has been a notable change in the number of H1-B being approved based on who was there in the White House and a certain preference was given to applicants of a particular nationality.
 
+![h2](https://user-images.githubusercontent.com/77983487/117752952-4ba62300-b1dd-11eb-8c2f-1bb89a3337e9.jpg)
+
+
+
 H0: The "Obama" and the "Trump" government favored citizens from a certain nationality in approving H1-B visas based on the relations of United States with that particular nation.
 
 H1: The government in power was not biased towards citizens from any particular nation while approving H1-B visas.
@@ -42,6 +46,18 @@ From the tables below we find that even the companies with a small market capita
 
 ![image](https://user-images.githubusercontent.com/77983689/117744024-843e0080-b1cd-11eb-9e42-cf0e82858269.png)
 
+## Popular State for LCA approvals analysis:
+![5](https://user-images.githubusercontent.com/77983487/117752709-e2261480-b1dc-11eb-950a-f4a34c2ed5c5.png)
+
+
+
+Which state is the primary worksite location while filling a LCA?
+
+![image](https://user-images.githubusercontent.com/77983487/117752604-af7c1c00-b1dc-11eb-8f45-4c9d0c2460e3.png)
+
+From the above table we see that California which is also the most tech developed state of America has been the top choice for companies when they file for LCA. Thus, we conclude that a person migrating to US to work on an H1-B is most probably to work in the state of California, New York and Texas.
+
+## Datasets:
 
 All the data files used in the program can be found on the below link:
 Download these files to run the code in the local with the same folder structure.
