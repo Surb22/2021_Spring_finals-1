@@ -35,6 +35,7 @@ H1: There is no impact of market value of an organisation in certifying the Labo
 
 ### Result:
 From the tables below we find that even the companies with a small market capital have a higher success rate of LCA approvals compared to the companies with a higher market capital. Thus, we reject our null hypothesis which states that a company with a higher market capital which has better resources, would have a better chance at securing an LCA approval for employing a foreign worker.
+
 ![image](https://user-images.githubusercontent.com/77983689/117744050-8e5fff00-b1cd-11eb-86b0-5e9070f013de.png)
 
 ![image](https://user-images.githubusercontent.com/77983689/117744024-843e0080-b1cd-11eb-9e42-cf0e82858269.png)
