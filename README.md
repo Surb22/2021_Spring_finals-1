@@ -31,6 +31,8 @@ Labor Condition Applications
 
 H1: There is no impact of market value of an organisation in certifying the Labor Condition Applications
 
+All the data files used in the program can be found on the below link:
+https://drive.google.com/drive/folders/1MGVg2kT_17szLGbT42BRYRGL7iDqlSX0?usp=sharing
 
 The dataset for LCA approval is available at the below link:
 https://www.dol.gov/agencies/eta/foreign-labor/performance
