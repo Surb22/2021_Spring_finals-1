@@ -1,3 +1,5 @@
+Team members: Shubhda Sharma & Surbhi Bhargava 
+
 # The Hustle around H-1B visas
 
 ![960x0](https://user-images.githubusercontent.com/77983487/117752330-2fee4d00-b1dc-11eb-9a2e-d9a36e547dfc.jpg)
