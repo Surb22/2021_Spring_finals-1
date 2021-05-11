@@ -45,10 +45,10 @@ From the tables below we find that even the companies with a small market capita
 All the data files used in the program can be found on the below link:
 https://drive.google.com/drive/folders/1MGVg2kT_17szLGbT42BRYRGL7iDqlSX0?usp=sharing
 
-The dataset for LCA approval is available at the below link:
+The dataset for LCA approvals is available at the this link:
 https://www.dol.gov/agencies/eta/foreign-labor/performance
 
-The datset for companies in different sectors is available at the below link:
+The datset for companies in different sectors is available at this link:
 https://www.kaggle.com/dhimananubhav/nasdaq-company-list
 
 The dataset for Nonimmigrant Visa Issuances by Visa Class and by Nationality:
