@@ -19,6 +19,7 @@ We observe that LCA filings have increased over the years for mostly all the ser
 ## Hypothesis 2: There has been a notable change in the number of Labor Condition Applications being certified based on who was there in the White house and a certain preference was given to applicants of a particular nationality.
 
 H0: The "Obama" and the "Trump" government favored citizens from a certain nationality in certifying Labor Condition Applications based on the relations of United States with that particular nation.
+
 H1: The government in power was not biased towards citizens from any particular nation while certifying the Labor Condition Applications
 
 ### Result:
@@ -31,6 +32,7 @@ For the period between 2009-17, the Democrats were at the Centre and lead by Pre
 ## Hypothesis 3: To test whether market value of an organisation has any impact on the DOL(Department of Labor) certifying the Labor Condition Applications.
 
 H0: Market value of an organisation has an impact on the DOL(Department of Labor) certifying the Labor Condition Applications
+
 H1: There is no impact of market value of an organisation in certifying the Labor Condition Applications
 
 ### Result:
